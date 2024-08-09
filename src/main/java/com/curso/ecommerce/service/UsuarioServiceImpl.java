@@ -11,10 +11,20 @@ import java.util.Optional;
 public class UsuarioServiceImpl implements IUsuarioService{
 
     @Autowired
-    private IUsuarioRepository IUsuarioRepository;
+    private IUsuarioRepository usuarioRepository;
 
     @Override
     public Optional<Usuario> findById(Integer id) {
-        return IUsuarioRepository.findById(id);
+        return usuarioRepository.findById(id);
+    }
+
+    @Override
+    public Usuario save(Usuario usuario) {
+        return usuarioRepository.save(usuario);
+    }
+
+    @Override
+    public Optional<Usuario> findByEmail(String email) {
+        return usuarioRepository.findByEmail(email);
     }
 }
